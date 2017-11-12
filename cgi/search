@@ -25,25 +25,17 @@ def getSearchResult(keys):
 
 table = getSearchResult(urlField.getvalue('keyword'))
 
-strCSS = '''
-<head>
-<style>
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-</style>
-</head>
-'''
+strStyle = open(os.path.join('cgi', 'style.css')).read()
+strCSS = '<head><style>' + strStyle + '</style></head>'
 
 print(strCSS)
 print("<table>")
-print("<tr><th>id</th><th>name</th><th>value 1</th><th>value 2</th><th>value 3</th><th>value 4</th></tr>")
+print("<tr class='th0'><th>id</th><th>name</th><th>value 1</th><th>value 2</th><th>value 3</th><th>value 4</th></tr>")
 for tr in table[1:] :
     print("<tr>")
-    print("<td><a href='http://www.baidu.com'>" + tr[0] + "</a></td>")
+    print("<td class='tdSingle0'><a href='http://www.baidu.com'>" + tr[0] + "</a></td>")
     for td in tr[1:] :
-        print("<td>" + td + "</td>")
+        print("<td class='tdSingle0'>" + td + "</td>")
     print("</tr>")
 
 print("</table>")
