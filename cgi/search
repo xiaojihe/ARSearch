@@ -1,0 +1,49 @@
+#!/usr/local/bin/python3
+
+import cgitb
+import cgi
+import os
+cgitb.enable()
+
+urlField = cgi.FieldStorage()
+
+strForm='<form action="/cgi/search">keyword 1:<input type="text" name="keyword" value="" /> keyword 2:<input type="text" name="keyword" value="" /><input type="submit" value="Submit"></form>'
+
+print("Content-Type: text/html")
+print()
+print(strForm)
+
+def getSearchResult(keys):
+    table = []
+    with open(os.path.join('cgi', 'test.txt')) as f:
+        lines = f.readlines()
+        for line in lines :
+            items = line.split(' ')
+            table.append(items)
+
+    return table
+
+table = getSearchResult(urlField.getvalue('keyword'))
+
+strCSS = '''
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+</style>
+</head>
+'''
+
+print(strCSS)
+print("<table>")
+for tr in table :
+    print("<tr>")
+    for td in tr :
+        print("<td>" + td + "</td>")
+    print("</tr>")
+
+print("</table>")
+
+
