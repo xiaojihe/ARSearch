@@ -38,9 +38,11 @@ table, th, td {
 
 print(strCSS)
 print("<table>")
-for tr in table :
+print("<tr><th>id</th><th>name</th><th>value 1</th><th>value 2</th><th>value 3</th><th>value 4</th></tr>")
+for tr in table[1:] :
     print("<tr>")
-    for td in tr :
+    print("<td><a href='http://www.baidu.com'>" + tr[0] + "</a></td>")
+    for td in tr[1:] :
         print("<td>" + td + "</td>")
     print("</tr>")
 
