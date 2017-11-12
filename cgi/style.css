@@ -44,17 +44,17 @@ tr{
 	background-color:#0099FF;
 }
 .tdSingle0{
-//	background-color:#ACD1FB;	
+	background-color:#ACD1FB;	
 	text-align: center; 
 	//width: 150px;
 	table-layout:fixed;
-//	word-warp:break-warp;
-//	word-break:break-all;
+	//word-warp:break-warp;
+	word-wrap:break-wrap;
+	word-break:break-all;
 }
 .tdDouble0{
 	background-color:#DEEDFE;
 	text-align: center; 
-	width: 150px;
 	table-layout:fixed;
 	word-warp:break-warp;
 	word-break:break-all;

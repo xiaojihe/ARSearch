@@ -31,11 +31,19 @@ strCSS = '<head><style>' + strStyle + '</style></head>'
 print(strCSS)
 print("<table>")
 print("<tr class='th0'><th>id</th><th>name</th><th>value 1</th><th>value 2</th><th>value 3</th><th>value 4</th></tr>")
+isSingle = True
 for tr in table[1:] :
     print("<tr>")
-    print("<td class='tdSingle0'><a href='http://www.baidu.com'>" + tr[0] + "</a></td>")
+    tdStyle='tdSingle0'
+    if isSingle :
+        tdStyle='tdSingle0'
+        isSingle = False
+    else :
+        tdStyle='tdDouble0'
+        isSingle = True
+    print("<td class='" + tdStyle + "'><a href='http://www.baidu.com'>" + tr[0] + "</a></td>")
     for td in tr[1:] :
-        print("<td class='tdSingle0'>" + td + "</td>")
+        print("<td class='" + tdStyle + "'>" + td + "</td>")
     print("</tr>")
 
 print("</table>")
